@@ -11,24 +11,10 @@ function App() {
     const { name, value } = event.target;
 
     setContact((prevValue) => {
-      console.log(prevValue);
-      if (name === "fName") {
-        return {
-          fName: value,
-          lName: prevValue.lName,
-        };
-      } else if (name === "lName") {
-        return {
-          lName: value,
-          fName: prevValue.fName,
-        };
-      } else if (name === "email") {
-        return {
-          fName: prevValue.fName,
-          lName: prevValue.lName,
-          email: value,
-        };
-      }
+      return {
+        ...prevValue,
+        [name]: value,
+      };
     });
   }
 
